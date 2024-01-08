@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://dppf7jiw7qvh5"]
+
+[ext_resource type="Script" path="res://Scripts/Player/Player.gd" id="1_5d3t8"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_gsb61"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_60agj"]
+albedo_color = Color(0.435294, 0.270588, 1, 1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wm288"]
+
+[node name="Level" type="Node3D"]
+
+[node name="Ground" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2)
+use_collision = true
+size = Vector3(15, 1, 15)
+
+[node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.0524282, -2)
+script = ExtResource("1_5d3t8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.41855, 0)
+mesh = SubResource("CapsuleMesh_gsb61")
+surface_material_override/0 = SubResource("StandardMaterial3D_60agj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.419, 0)
+shape = SubResource("CapsuleShape3D_wm288")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.979973, 7.30137e-09, -0.199129, 0.108838, 0.837414, 0.535624, 0.166753, -0.54657, 0.820643, 1.45103, 4.07033, 1.39979)
+light_energy = 1.445
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.509011, 0.86076, 0, -0.86076, 0.509011, 2.17441, 6.96111, 5.01652)
