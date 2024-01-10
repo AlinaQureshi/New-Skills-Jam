@@ -19,8 +19,8 @@ size = Vector3(15, 1, 15)
 [node name="Player" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.0524282, -2)
 script = ExtResource("1_5d3t8")
-jump_time_to_peak = 0.9
-jump_time_to_descent = 0.6
+jump_time_to_peak = 0.5
+jump_time_to_descent = 0.5
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.41855, 0)
