@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxqex5roxy4xv"]
+
+[ext_resource type="Texture2D" uid="uid://bs7d8i8gq731n" path="res://Assets/SpaceBackground.jpg" id="1_cf5b8"]
+[ext_resource type="Texture2D" uid="uid://dmwblsoia5mv4" path="res://Assets/start_normal.png" id="2_lbm6n"]
+[ext_resource type="Texture2D" uid="uid://bjrtg2ikgyn7o" path="res://Assets/start_pressed.png" id="3_tshsk"]
+
+[node name="Background" type="TextureRect"]
+modulate = Color(1, 1, 1, 0.815686)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.993858, 1)
+texture = ExtResource("1_cf5b8")
+
+[node name="Logo" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Start" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 949.833
+offset_top = 929.0
+offset_right = 1098.83
+offset_bottom = 1003.0
+texture_normal = ExtResource("2_lbm6n")
+texture_pressed = ExtResource("3_tshsk")
+stretch_mode = 0

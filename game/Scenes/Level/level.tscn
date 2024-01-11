@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://dppf7jiw7qvh5"]
 
 [ext_resource type="Script" path="res://Scripts/Player/Player.gd" id="1_5d3t8"]
-[ext_resource type="Script" path="res://Scenes/level.gd" id="1_xpfr3"]
-[ext_resource type="Script" path="res://Scenes/Oxygen.gd" id="2_q6co8"]
+[ext_resource type="Script" path="res://Scenes/Level/level.gd" id="1_xpfr3"]
+[ext_resource type="Script" path="res://Scenes/Level/Oxygen.gd" id="2_q6co8"]
 [ext_resource type="Theme" uid="uid://bnfhftkej7nx3" path="res://oxygenTheme.tres" id="3_yhmm3"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_gsb61"]
@@ -15,16 +15,16 @@ albedo_color = Color(0.435294, 0.270588, 1, 1)
 [node name="Level" type="Node3D"]
 script = ExtResource("1_xpfr3")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="UI" type="CanvasLayer" parent="."]
 script = ExtResource("2_q6co8")
 
-[node name="Control" type="Control" parent="CanvasLayer"]
+[node name="Control" type="Control" parent="UI"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 371.0
 offset_bottom = 40.0
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control"]
+[node name="MarginContainer" type="MarginContainer" parent="UI/Control"]
 layout_mode = 0
 offset_right = 642.0
 offset_bottom = 191.0
@@ -33,24 +33,24 @@ theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 32
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Control/MarginContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 auto_translate = false
 
-[node name="Label" type="Label" parent="CanvasLayer/Control/MarginContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="UI/Control/MarginContainer/HBoxContainer"]
 layout_mode = 2
 text = "O2
 "
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/MarginContainer/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="UI/Control/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 50
 theme_override_constants/margin_bottom = 50
 
-[node name="OxygenTank" type="ProgressBar" parent="CanvasLayer/Control/MarginContainer/HBoxContainer/MarginContainer"]
+[node name="OxygenTank" type="ProgressBar" parent="UI/Control/MarginContainer/HBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
