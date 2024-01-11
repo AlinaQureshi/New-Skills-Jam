@@ -42,38 +42,38 @@ extends CharacterBody3D
 @onready var fall_gravity : float = (-2.0 * jump_height) / (jump_time_to_peak * jump_time_to_descent)
 
 #update and use across framse
-var target_velocity = Vector3.ZERO 
+var acceleration = 1
 
 func _physics_process(delta):
-	#_physics_process runs 50 times per sec making physics interactions more stable vs _process()
-	#move as long as the key/button is pressed
-	var direction = Vector3.ZERO
-	if Input.is_action_pressed("move_right"):
-		direction.x += 1
-	if Input.is_action_pressed("move_left"):
-		direction.x -= 1
-	if Input.is_action_pressed("move_backward"):
-		direction.z += 1
-	if Input.is_action_pressed("move_forward"):
-		direction.z -= 1
-	if direction != Vector3.ZERO:
-		#normalize the values just in case player presses two buttons simultaneously
-		direction = direction.normalized()
-		$Pivot.look_at(position + direction, Vector3.UP)
-
-	target_velocity.y += get_gravity() * delta
-	target_velocity.x = direction.x * move_speed 
-	target_velocity.z = direction.z * move_speed 
-	# Vertical Velocity
-	#if not is_on_floor(): # If in the air, fall towards the floor. Literally gravity
-		#target_velocity.y = target_velocity.y - (fall_acceleration * delta)
-	
-	velocity = target_velocity
-	#allows smooth character movement
+	if not is_on_floor(): # If in the air, fall towards the floor. Literally gravity
+		velocity.y += get_gravity() * delta
+	#
+	var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
+	var direction = (Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	if is_on_floor():
+		#if player is pressing move button
+		print(direction)
+		if direction:
+			# assign velocity
+			print("PRESSING x", velocity.x)
+			print("PRESSING z", velocity.z)
+			velocity.x = direction.x * move_speed
+			velocity.z = direction.z * move_speed
+		else:
+		#if player is not pressing move button/stopped pressing
+		#we use lerp which gradually brings down the velocity
+		# lerp(from, to, weight how fast it gets to the next point 0.0-1.0
+			print("STOPPED PRESSING x", velocity.x, " ", direction.x * move_speed)
+			print("STOPPED PRESSING z", velocity.z, " ", direction.z * move_speed)
+			velocity.x = lerp(velocity.x, direction.x , delta * 7.0)
+			velocity.z = lerp(velocity.z, direction.z , delta * 7.0)
+	else:
+		velocity.x = lerp(velocity.x, direction.x , delta * 3.0)
+		velocity.z = lerp(velocity.z, direction.z , delta * 3.0)
 	move_and_slide()
-
+	
 func get_gravity():
-	return jump_gravity if velocity.y <0.0 else fall_gravity
+	return jump_gravity if velocity.y < 0.0 else fall_gravity
 
 func _input(event):
 	#only when pressed
@@ -81,4 +81,4 @@ func _input(event):
 		jump()
 
 func jump():
-	target_velocity.y = jump_velocity
+	velocity.y = jump_velocity
