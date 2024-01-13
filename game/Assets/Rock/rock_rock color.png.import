@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ciobc1331i4ud"
-path.s3tc="res://.godot/imported/rock_roughness map.png-6377cfa0588678d970ff5fb3b90e6929.s3tc.ctex"
+uid="uid://bqksjyh458dn3"
+path.s3tc="res://.godot/imported/rock_rock color.png-27b2f87dfa340aced5505cd854dcf341.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://Rock/rock_roughness map.png"
-dest_files=["res://.godot/imported/rock_roughness map.png-6377cfa0588678d970ff5fb3b90e6929.s3tc.ctex"]
+source_file="res://Assets/Rock/rock_rock color.png"
+dest_files=["res://.godot/imported/rock_rock color.png-27b2f87dfa340aced5505cd854dcf341.s3tc.ctex"]
 
 [params]
 

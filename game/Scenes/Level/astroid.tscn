@@ -1,11 +1,11 @@
 [gd_scene load_steps=12 format=3 uid="uid://bwa7rf76j1i5v"]
 
 [ext_resource type="Script" path="res://Scripts/astroid.gd" id="1_i4hj2"]
-[ext_resource type="PackedScene" uid="uid://ccj8gutnod7sa" path="res://Rock/rock.glb" id="2_81ru3"]
+[ext_resource type="PackedScene" uid="uid://ccj8gutnod7sa" path="res://Assets/Rock/rock.glb" id="2_81ru3"]
 [ext_resource type="Script" path="res://addons/destruction/destruction.gd" id="3_3ofoe"]
-[ext_resource type="Texture2D" uid="uid://bqksjyh458dn3" path="res://Rock/rock_rock color.png" id="4_7iqk7"]
-[ext_resource type="Texture2D" uid="uid://ciobc1331i4ud" path="res://Rock/rock_roughness map.png" id="5_4yvvb"]
-[ext_resource type="Texture2D" uid="uid://bxa7foeuqrj8g" path="res://Rock/rock_rock normal map.png" id="6_lmase"]
+[ext_resource type="Texture2D" uid="uid://bqksjyh458dn3" path="res://Assets/Rock/rock_rock color.png" id="4_7iqk7"]
+[ext_resource type="Texture2D" uid="uid://ciobc1331i4ud" path="res://Assets/Rock/rock_roughness map.png" id="5_4yvvb"]
+[ext_resource type="Texture2D" uid="uid://bxa7foeuqrj8g" path="res://Assets/Rock/rock_rock normal map.png" id="6_lmase"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_5k4rk"]
 points = PackedVector3Array(-0.00865871, -0.00846132, 0.0761457, -0.083555, 0.911065, 0.0299688, 0.393369, 0.317902, -0.217519, -0.302139, 0.426168, -0.310199, 0.00690503, 0.303007, 0.445839, -0.459992, 0.581415, 0.169738, 0.485159, 0.302801, 0.153174, -0.301585, 0.102141, 0.214904, -0.00853147, 0.874243, -0.171092, 0.434698, 0.579134, 0.0755449, -0.15924, 0.74462, 0.317455, -0.366376, 0.861287, -0.0946477, -0.101353, 0.271497, -0.356779, 0.270733, 0.00690738, 0.107252, -0.331025, 0.165013, -0.108494, 0.207315, 0.117922, -0.232207, 0.0377221, 0.0866906, 0.369287, 0.296759, 0.380833, 0.334673, -0.0391188, 0.702988, -0.293129, 0.433349, 0.502638, -0.152775, -0.459055, 0.581174, -0.110018, 0.504297, 0.239431, -0.0634817, -0.317661, 0.889826, 0.107037, -0.239282, 0.041424, -0.0163202, 0.08377, 0.364886, -0.354333, -0.461132, 0.410315, 0.12328, 0.189421, 0.548015, 0.318394, -0.0862497, -0.0085496, 0.215925, -0.113593, 0.8952, 0.15079, -0.256508, 0.673951, -0.280182, -0.316017, 0.764676, 0.260493, -0.222849, 0.303785, 0.336402)
@@ -92,7 +92,7 @@ autostart = true
 [node name="Destruction" type="Node" parent="." node_paths=PackedStringArray("shard_container")]
 script = ExtResource("3_3ofoe")
 fragmented = SubResource("PackedScene_wa6mf")
-shard_container = NodePath("../..")
+shard_container = NodePath("")
 
 [connection signal="area_entered" from="RigidBody3D/Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="body_entered" from="RigidBody3D/Area3D" to="." method="_on_area_3d_body_entered"]

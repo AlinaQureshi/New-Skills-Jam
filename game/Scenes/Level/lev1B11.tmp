@@ -1,12 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://dppf7jiw7qvh5"]
+[gd_scene load_steps=10 format=3 uid="uid://dppf7jiw7qvh5"]
 
 [ext_resource type="Script" path="res://Scripts/Player/Player.gd" id="1_5d3t8"]
 [ext_resource type="Script" path="res://Scenes/Level/level.gd" id="1_xpfr3"]
 [ext_resource type="Script" path="res://Scenes/Level/Oxygen.gd" id="2_q6co8"]
 [ext_resource type="Theme" uid="uid://bnfhftkej7nx3" path="res://oxygenTheme.tres" id="3_yhmm3"]
-[ext_resource type="PackedScene" uid="uid://dxprjotj46h5r" path="res://Assets/UI/Text Box/DialogueBox.tscn" id="4_by51f"]
 [ext_resource type="PackedScene" uid="uid://b3q65shglxxhk" path="res://Scenes/Level/spawner.tscn" id="5_npu48"]
-[ext_resource type="PackedScene" uid="uid://bk3mwo4sbpbq7" path="res://Assets/Collectable/Collectable.tscn" id="7_g5lb3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xerb7"]
 
@@ -61,10 +59,8 @@ size_flags_horizontal = 3
 size_flags_vertical = 1
 theme = ExtResource("3_yhmm3")
 
-[node name="DialogueBox" parent="UI" instance=ExtResource("4_by51f")]
-
 [node name="Ground" type="CSGBox3D" parent="." groups=["Ground"]]
-transform = Transform3D(12.4382, 0, 0, 0, 1, 0, 0, 0, 5.49488, 2, 0, -2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2)
 use_collision = true
 size = Vector3(15, 1, 15)
 
@@ -94,17 +90,12 @@ shape = SubResource("CapsuleShape3D_wm288")
 [node name="Area3D" type="Area3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.696356, 0)
 
-[node name="Camera3D" type="Camera3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 0.814115, 0.580703, 0, -0.580703, 0.814115, 0.174, 4, 2.547)
-fov = 72.5
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.979973, 7.30137e-09, -0.199129, 0.108838, 0.837414, 0.535624, 0.166753, -0.54657, 0.820643, 1.45103, 4.07033, 1.39979)
 light_energy = 1.445
 shadow_enabled = true
 
-[node name="Spawner" parent="." instance=ExtResource("5_npu48")]
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.509011, 0.86076, 0, -0.86076, 0.509011, 2.17441, 6.96111, 5.01652)
 
-[node name="Collectable" parent="." instance=ExtResource("7_g5lb3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8378, 1.74404, -10.77)
-keyTrigger = "Item1"
+[node name="Spawner" parent="." instance=ExtResource("5_npu48")]
