@@ -26,11 +26,6 @@ size_flags_vertical = 3
 theme_override_constants/separation = 30
 alignment = 1
 
-[node name="Continue" type="Button" parent="HBoxContainer/VBoxContainer/MenuOptions"]
-layout_mode = 2
-text = "Continue
-"
-
 [node name="NewGame" type="Button" parent="HBoxContainer/VBoxContainer/MenuOptions"]
 layout_mode = 2
 text = "New Game
@@ -39,6 +34,11 @@ text = "New Game
 [node name="Quit" type="Button" parent="HBoxContainer/VBoxContainer/MenuOptions"]
 layout_mode = 2
 text = "Quit
+"
+
+[node name="Continue" type="Button" parent="HBoxContainer/VBoxContainer/MenuOptions"]
+layout_mode = 2
+text = "Continue
 "
 
 [node name="CenterContainer" type="CenterContainer" parent="HBoxContainer"]
