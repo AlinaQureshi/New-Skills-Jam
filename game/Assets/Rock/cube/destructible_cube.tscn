@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://cexof5tlc7l1i"]
 
-[ext_resource type="Material" uid="uid://b4ygu62iepx6e" path="res://Rock/cube/marble.tres" id="1_j03bl"]
+[ext_resource type="Material" uid="uid://b4ygu62iepx6e" path="res://Assets/Rock/cube/marble.tres" id="1_j03bl"]
 [ext_resource type="Script" path="res://addons/destruction/destruction.gd" id="2_gffgg"]
-[ext_resource type="PackedScene" uid="uid://ccj8gutnod7sa" path="res://Rock/rock.glb" id="3_3rgs4"]
+[ext_resource type="PackedScene" uid="uid://ccj8gutnod7sa" path="res://Assets/Rock/rock.glb" id="3_3rgs4"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_h5eed"]
 size = Vector3(2, 2, 2)

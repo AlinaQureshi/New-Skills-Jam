@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://celvn43a7xgcb"
-path="res://.godot/imported/cube_fragments.glb-6e20e5526b2a6aa97fef0337ab886dc1.scn"
+path="res://.godot/imported/cube_fragments.glb-8d229043e1e45c7aa7a4e738302377d1.scn"
 
 [deps]
 
-source_file="res://Rock/cube/cube_fragments.glb"
-dest_files=["res://.godot/imported/cube_fragments.glb-6e20e5526b2a6aa97fef0337ab886dc1.scn"]
+source_file="res://Assets/Rock/cube/cube_fragments.glb"
+dest_files=["res://.godot/imported/cube_fragments.glb-8d229043e1e45c7aa7a4e738302377d1.scn"]
 
 [params]
 

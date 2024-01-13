@@ -1,0 +1,101 @@
+[gd_scene load_steps=10 format=3 uid="uid://dppf7jiw7qvh5"]
+
+[ext_resource type="Script" path="res://Scripts/Player/Player.gd" id="1_5d3t8"]
+[ext_resource type="Script" path="res://Scenes/Level/level.gd" id="1_xpfr3"]
+[ext_resource type="Script" path="res://Scenes/Level/Oxygen.gd" id="2_q6co8"]
+[ext_resource type="Theme" uid="uid://bnfhftkej7nx3" path="res://oxygenTheme.tres" id="3_yhmm3"]
+[ext_resource type="PackedScene" uid="uid://b3q65shglxxhk" path="res://Scenes/Level/spawner.tscn" id="5_npu48"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xerb7"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_gsb61"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_60agj"]
+albedo_color = Color(0.435294, 0.270588, 1, 1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wm288"]
+
+[node name="Level" type="Node3D"]
+script = ExtResource("1_xpfr3")
+
+[node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("2_q6co8")
+
+[node name="Control" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 371.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/Control"]
+layout_mode = 0
+offset_right = 642.0
+offset_bottom = 191.0
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Control/MarginContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+auto_translate = false
+
+[node name="Label" type="Label" parent="UI/Control/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "O2
+"
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/Control/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="OxygenTank" type="ProgressBar" parent="UI/Control/MarginContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("3_yhmm3")
+
+[node name="Ground" type="CSGBox3D" parent="." groups=["Ground"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2)
+use_collision = true
+size = Vector3(15, 1, 15)
+
+[node name="Ground" type="Area3D" parent="Ground" groups=["Ground"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/Ground"]
+transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 20, -0.57489, 0, 0.661744)
+shape = SubResource("BoxShape3D_xerb7")
+
+[node name="Player" type="CharacterBody3D" parent="." groups=["Player"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.0524282, 2.46998)
+script = ExtResource("1_5d3t8")
+jump_time_to_peak = 0.9
+jump_time_to_descent = 0.6
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.41855, 0)
+mesh = SubResource("CapsuleMesh_gsb61")
+surface_material_override/0 = SubResource("StandardMaterial3D_60agj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player" groups=["Player"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.419, 0)
+shape = SubResource("CapsuleShape3D_wm288")
+
+[node name="Pivot" type="Node3D" parent="Player"]
+
+[node name="Area3D" type="Area3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.696356, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.979973, 7.30137e-09, -0.199129, 0.108838, 0.837414, 0.535624, 0.166753, -0.54657, 0.820643, 1.45103, 4.07033, 1.39979)
+light_energy = 1.445
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.509011, 0.86076, 0, -0.86076, 0.509011, 2.17441, 6.96111, 5.01652)
+
+[node name="Spawner" parent="." instance=ExtResource("5_npu48")]
